@@ -31,7 +31,7 @@ jobs:
         uses: docker://alpine:latest
         shell: sh
         run: |
-           echo "artifact ID for new-vulnerablegorepo4gh:${{ cloudbees.version }} is: ${{ steps.register-artifact.outputs.artifact-id }}"
+           echo "artifact ID for gosecRepo-:${{ cloudbees.version }} is: ${{ steps.register-artifact.outputs.artifact-id }}"
       - id: upload-binary
         name: Upload binary using action
         uses: cloudbees-io/asset-chain-utils-preprod/upload-binary@v1
