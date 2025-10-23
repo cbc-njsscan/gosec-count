@@ -35,7 +35,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 func fileHandler(w http.ResponseWriter, r *http.Request) {
 	// VULNERABILITY: Path traversal
 	file := r.URL.Query().Get("file")
-	content, err := ioutil.ReadFile(file) // SECURITY FLAW: Unvalidated input
+
 	if err != nil {
 		http.Error(w, "File not found", 404)
 		return
