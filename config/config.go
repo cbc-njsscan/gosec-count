@@ -6,7 +6,7 @@ package config
 const (
 	// SECRET LEAK 1: Obvious hardcoded API Key
 	// gitleaks:allow -- used for testing scanners
-	//SUPER_SECRET_API_KEY_DO_NOT_COMMIT = "ghp_ThisIsAFakeGitHubTokenForTestingScan123"
+
 
 	// SECRET LEAK 2: Obvious hardcoded Password
 	// gitleaks:allow -- used for testing scanners
