@@ -1,0 +1,29 @@
+name: blackduck-explicit-plugin
+kind: workflow
+apiVersion: automation.cloudbees.io/v1alpha1
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron: 30 3 * * 1-5  # Runs weekdays at 3:30 AM
+
+permissions:
+  scm-token-own: read
+  scm-token-org: read
+  id-token: write
+
+jobs:
+  blackduck-explicit-scan:
+    steps:
+      - name: Checkout Source Code
+        uses: cloudbees-io/checkout@v1
+
+      - name: Run Black Duck SCA Scan (Explicit Plugin)
+        uses: cloudbees-io/blackduck-plugin@v1
+        with:
+          url: 'https://blackduck.saas-qa.beescloud.com'
+          api_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+          
