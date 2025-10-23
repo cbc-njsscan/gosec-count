@@ -15,15 +15,15 @@ permissions:
   scm-token-org: read
   id-token: write
 
-jobs:
-  blackduck-explicit-scan:
-    steps:
-      - name: Checkout Source Code
-        uses: cloudbees-io/checkout@v1
-
-      - name: Run Black Duck SCA Scan (Explicit Plugin)
-        uses: cloudbees-io/blackduck-plugin@v1
-        with:
-          url: 'https://blackduck.saas-qa.beescloud.com'
-          api_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
           
+jobs:
+  blackduck-scan:
+    steps:
+
+      - name: Scan with Black Duck SCA with params
+        uses: cloudbees-io/blackduck-sca-scan-dependency@v2
+        with:
+          server-url: ${{ vars.BLACK_DUCK_URL }}
+          api-token: ${{ secrets.BLACK_DUCK_TOKEN }}
+          ref: main
+    
