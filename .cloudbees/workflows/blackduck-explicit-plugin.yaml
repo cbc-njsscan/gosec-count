@@ -8,16 +8,16 @@ on:
     branches:
       - 'main'
 
-
 permissions:
   scm-token-own: read
   scm-token-org: read
   id-token: write
 
-          
 jobs:
   blackduck-scan:
     steps:
+      - name: Checkout Source Code
+        uses: cloudbees-io/checkout@v1
 
       - name: Scan with Black Duck SCA with params
         uses: cloudbees-io/blackduck-sca-scan-dependency@v2
@@ -25,4 +25,3 @@ jobs:
           server-url: ${{ vars.BLACK_DUCK_URL }}
           api-token: ${{ secrets.BLACK_DUCK_TOKEN }}
           ref: main
-    
