@@ -23,5 +23,5 @@ jobs:
         uses: cloudbees-io/blackduck-sca-scan-dependency@v2
         with:
           server-url: 'https://blackduck.saas-qa.beescloud.com'
-          api-token: 'MDVmZmFkOTMtYjA2Ni00M2U1LTgzNTYtMzA5YzY4OGJmODA2OjJhYjNjYTI2LWE2NjQtNGY1NC1iYzljLWM0MGRjMzQ3YzQwNQ=='
+
           ref: main
